@@ -1,0 +1,113 @@
+.errorMessagePane {
+  height: 180px;
+  width: 320px;
+  background-color: #ffffff;
+  border: solid 1px #4a4a4a;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  top: 35%;
+  display: none;
+}
+
+.errorMessagePane.selected {
+  display: block;
+}
+
+.errorMsgTopPane {
+  height: 17%;
+  width: 100%;
+  border-bottom: solid 1px #4a4a4a;
+  display: flex;
+  position: relative;
+}
+
+.errorMsgTitle {
+  font-family: sans-serif;
+  font-size: 11px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+#emCloseButton {
+  height: 20px;
+  width: 22px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.errorMsgMainPane {
+  height: 61%;
+  display: flex;
+}
+
+.emWarningImage {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 13px;
+}
+
+.errorMsgTextPane {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.errorMsgStatusText {
+  font-family: sans-serif;
+  margin-top: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.errorMsgInfoText {
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 11px;
+  white-space: normal;
+  margin: 12px;
+  text-align: center;
+}
+
+.errorMsgBottomPane {
+  height: 22%;
+  width: 100%;
+  border-top: solid 1px #4a4a4a;
+  position: absolute;
+  bottom: 0%;
+}
+
+#emOkButton {
+  height: 22px;
+  width: 45px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.errorMsgButton {
+  background-color: #ffffff;
+  border: solid 1px #4a4a4a;
+  border-radius: 2px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.errorMsgButton:hover {
+  background-color: #ececec;
+}
+
+.errorMsgButton:active {
+  background-color: #fbf7f7;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Student Assistant",
+  "short_name": "Stud Helper",
+  "theme_color": "#00BAA6",
+  "background_color": "#ECECEC",
+  "display": "browser",
+  "start_url": "."
+}

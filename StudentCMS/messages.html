@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="navigationMain/style/navMainStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="messages/style/messagesStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="errorMessage/style/errorMsgStyle.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <link rel="manifest" href="serviceWorkers/manifest.json" />
+  </head>
+  <body>
+    <nav class="navigationPane">
+      <button id="cmsButton" class="navTitleButton">CMS</button>
+      <div id="navTools" class="navigationTools">
+        <div id="bellPane" class="navBellPane">
+          <svg
+            id="bellImage"
+            class="navBellImage"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+            />
+          </svg>
+          <div id="bellOrangeDot" class="navBellOrangeDot selected"></div>
+        </div>
+        <div id="profilePane" class="navProfilePane">
+          <img
+            id="profilePic"
+            class="navProfilePic"
+            src="pictures/ProfilePicture.jpg"
+            alt="Image cannot be displayed"
+          />
+          <p id="profileUsername" class="navProfileUsername">James Bond</p>
+        </div>
+      </div>
+
+      <div id="msgMenu" class="msgMenuPane">
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Admin</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Jonh K.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Ann S.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+      </div>
+
+      <div id="profileMenu" class="profileMenuPane">
+        <button id="profileButton" class="profileMenuButton">Profile</button>
+        <button id="logOutButton" class="profileMenuButton">Log Out</button>
+      </div>
+    </nav>
+
+    <div id="mainPane" class="mainPane">
+      <nav id="navTabPane" class="tabPane">
+        <ul class="tabItem selected">
+          <a href="messages.html" id="messagesLink" class="tabLink">
+            Messages
+          </a>
+        </ul>
+        <ul class="tabItem">
+          <a href="index.html" id="studentsLink" class="tabLink"> Students </a>
+        </ul>
+        <ul class="tabItem">
+          <a href="tasks.html" id="tasksLink" class="tabLink"> Tasks </a>
+        </ul>
+      </nav>
+
+      <div id="messagesPane" class="workPane">
+        <p id="title" class="tabTitle">Messages</p>
+        <div class="mainMessagesPane">
+          <div class="chatRoomContPane">
+            <div class="chatRoomContInfo">
+              <p id="chatRoomTitle" class="chatRoomTitleText">Chat room</p>
+              <button id="createChatButton" class="newChatRoomButton">
+                + New chat room
+              </button>
+            </div>
+            <div id="roomContainer" class="chatRoomContainer">
+              <!-- <div class="chatRoom">
+                <img
+                  id="chatImage"
+                  src="pictures/ProfilePicture.jpg"
+                  class="chatRoomImage"
+                />
+                <p id="chatName" class="chatRoomName">Chat Name</p>
+                <p id="chat_id" class="elementIdHidden">1</p>
+                <div id="chatMembersCont" class="elementIdHidden"></div>
+              </div>
+
+              <div class="chatRoom selected">
+                <img
+                  id="chatImage"
+                  src="pictures/ProfilePicture.jpg"
+                  class="chatRoomImage"
+                />
+                <p id="chatName" class="chatRoomName">Chat Name</p>
+                <p id="chat_id" class="elementIdHidden">1</p>
+                <div id="chatMembersCont" class="elementIdHidden"></div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="chatRoomPane">
+            <p id="currChatRoomTitle" class="chatRoomTitleText">Chat room</p>
+            <p class="chatRoomTitleText">Members</p>
+            <div class="chatMembersPane">
+              <div id="membersContainer" class="chatMembersContPane">
+                <!-- <div id="currChatMember" class="chatMemberPane">
+                  <img
+                    src="pictures/MessageProfile.jpg"
+                    class="chatMemberImage"
+                  />
+                  <p id="currMemberUsername" class="chatMemberUsername">
+                    James Bond
+                  </p>
+                  <p id="currMember_id" class="elementIdHidden"></p>
+                </div> -->
+                <!-- <img
+                  src="pictures/MessageProfile.jpg"
+                  class="chatMemberImage"
+                />
+                <img
+                  src="pictures/MessageProfile.jpg"
+                  class="chatMemberImage"
+                /> -->
+              </div>
+              <button id="addMemberButton" class="newMemberButton">+</button>
+            </div>
+            <p class="chatRoomTitleText">Messages</p>
+            <div id="messageContainer" class="messageContPane">
+              <!-- <div class="messagePane receivedMessage">
+                <div class="msgProfileInfoPane">
+                  <img
+                    src="pictures/MessageProfile.jpg"
+                    class="msgProfileImage"
+                  />
+                  <p class="msgProfileName">Admin</p>
+                </div>
+                <div class="messageContentPane">
+                  <div class="msgTriangle"></div>
+                  <div class="msgRectangle">
+                    <p class="messageText">
+                      ksadokkoaskdsakkdas sdjkdsjfjdsjkdjksdf
+                      enrnermioklm.jolkm,lk,.msdnk xfoogjjsgjklkjdffsd
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="messagePane ownMessage">
+                <div class="messageContentPane">
+                  <div class="msgRectangle ownMessage">
+                    <p class="messageText">
+                      Some big text kgjfdjkdfjkfdjkfdjkfdjgjkdf gnkgnk hknhdgf
+                      kgdfk fgkgkf
+                    </p>
+                  </div>
+                  <div class="msgTriangle ownMessage"></div>
+                </div>
+                <div class="msgProfileInfoPane">
+                  <img
+                    src="pictures/MessageProfile.jpg"
+                    class="msgProfileImage"
+                  />
+                  <p class="msgProfileName ownMessage">Me</p>
+                </div>
+              </div> -->
+            </div>
+            <div class="sendMessagePane">
+              <form id="sendMsgForm" class="sendMessageForm">
+                <input
+                  type="text"
+                  id="newMsgField"
+                  class="newMessageField"
+                  minlength="1"
+                  required
+                />
+                <button id="sendMsgButton" class="sendMessageButton">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="newChatRoomPane" class="createChatRoomPane">
+      <div class="newChatTopPane">
+        <p class="newChatRoomTitle">Create New Chat Room</p>
+        <button id="newCRCloseButton" class="addPaneCloseButton">✕</button>
+      </div>
+      <form id="createChatForm" class="newChatRoomForm">
+        <div class="newChatFieldPane">
+          <label for="chatNameField" class="newChatRoomLabel">Chat Name</label>
+          <input
+            type="text"
+            id="chatNameField"
+            class="newChatRoomField"
+            placeholder="New Chat Name"
+            minlength="1"
+            maxlength="25"
+            required
+          />
+        </div>
+        <input
+          type="submit"
+          id="createChatSubmit"
+          class="addPaneSubmit"
+          value="Create"
+        />
+      </form>
+    </div>
+
+    <div id="addMembersPane" class="newMembersPane">
+      <div class="newMembersTopPane">
+        <p class="newMembersTitle">Add Chat Members</p>
+        <button id="newMembersCloseButton" class="addPaneCloseButton">✕</button>
+      </div>
+      <div id="newMembersContainer" class="newMembersContPane">
+        <!-- <div id="currNewMemberPane" class="newMemberPane">
+          <img src="pictures/MessageProfile.jpg" class="newMemberImage" />
+          <p id="currNewMemberUsername" class="newMemberUsername">John Smith</p>
+          <p id="currNewMember_id" class="elementIdHidden"></p>
+        </div> -->
+      </div>
+      <div class="newMembersBottomPane">
+        <button id="addMembersSubmit" class="addPaneSubmit">
+          Add Chat Members
+        </button>
+      </div>
+    </div>
+
+    <div id="errorMsgPane" class="errorMessagePane">
+      <div class="errorMsgTopPane">
+        <h6 class="errorMsgTitle">Http-Request Error</h6>
+        <button id="emCloseButton" class="errorMsgButton">✕</button>
+      </div>
+      <div class="errorMsgMainPane">
+        <img
+          id="warningImage"
+          class="emWarningImage"
+          src="pictures/Warning.png"
+          alt="Image cannot be displayed"
+        />
+        <div class="errorMsgTextPane">
+          <h4 id="errorMsgStatus" class="errorMsgStatusText">Error 404</h4>
+          <p id="errorMsgInfo" class="errorMsgInfoText"></p>
+        </div>
+      </div>
+      <div class="errorMsgBottomPane">
+        <button id="emOkButton" class="errorMsgButton">Ok</button>
+      </div>
+    </div>
+
+    <script
+      src="navigationMain/javaScript/navMainScript.js"
+      type="module"
+    ></script>
+    <script src="messages/javaScript/messagesScript.js" type="module"></script>
+  </body>
+</html>

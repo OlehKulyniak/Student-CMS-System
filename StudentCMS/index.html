@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentCMS</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="navigationMain/style/navMainStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="students/style/studentsStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="students/style/studFormStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="students/style/studDelStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="errorMessage/style/errorMsgStyle.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <link rel="manifest" href="serviceWorkers/manifest.json" />
+  </head>
+  <body>
+    <nav class="navigationPane">
+      <button id="cmsButton" class="navTitleButton">CMS</button>
+      <div id="navTools" class="navigationTools">
+        <div id="bellPane" class="navBellPane">
+          <svg
+            id="bellImage"
+            class="navBellImage"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+            />
+          </svg>
+          <div id="bellOrangeDot" class="navBellOrangeDot selected"></div>
+        </div>
+        <div id="profilePane" class="navProfilePane">
+          <img
+            id="profilePic"
+            class="navProfilePic"
+            src="pictures/ProfilePicture.jpg"
+            alt="Image cannot be displayed"
+          />
+          <p id="profileUsername" class="navProfileUsername">James Bond</p>
+        </div>
+      </div>
+
+      <div id="msgMenu" class="msgMenuPane">
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Admin</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Jonh K.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Ann S.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+      </div>
+
+      <div id="profileMenu" class="profileMenuPane">
+        <button id="profileButton" class="profileMenuButton">Profile</button>
+        <button id="logOutButton" class="profileMenuButton">Log Out</button>
+      </div>
+    </nav>
+
+    <div id="mainPane" class="mainPane">
+      <nav id="navTabPane" class="tabPane">
+        <ul class="tabItem">
+          <a href="messages.html" id="messagesLink" class="tabLink">
+            Messages
+          </a>
+        </ul>
+        <ul id="studentsTab" class="tabItem selected">
+          <a href="index.html" id="studentsLink" class="tabLink"> Students </a>
+        </ul>
+        <ul class="tabItem">
+          <a href="tasks.html" id="tasksLink" class="tabLink"> Tasks </a>
+        </ul>
+      </nav>
+
+      <div id="studentsPane" class="workPane">
+        <p id="title" class="tabTitle">Students</p>
+        <button id="addPlusButton" class="studAddPlusButton">+</button>
+        <table id="studentsTable" class="mainStudentsTable" border="1">
+          <tr align="center" id="tableHeader">
+            <th width="7%" class="checkBoxCell">
+              <input type="checkbox" id="mainCheckBox" class="studCheckBox" />
+              <div id="mainCheckMark" class="studCheckMark"></div>
+            </th>
+            <th width="0%" id="idColumn" class="studIdColumn">Id</th>
+            <th width="10%">Group</th>
+            <th width="23%">Name</th>
+            <th width="8%">Gender</th>
+            <th width="15%">Birthday</th>
+            <th width="8%">Status</th>
+            <th width="11%">Options</th>
+          </tr>
+        </table>
+
+        <div id="paginationPane" class="studPaginationPane">
+          <button
+            id="leftPaginButton"
+            class="paginationButton arrowPaginButton"
+          >
+            <
+          </button>
+          <button
+            id="leftNumPagination"
+            class="paginationButton selected numPaginButton edgePaginButton"
+          >
+            1
+          </button>
+          <button class="paginationButton numPaginButton">2</button>
+          <button class="paginationButton numPaginButton">3</button>
+          <button
+            id="rightNumPagination"
+            class="paginationButton numPaginButton edgePaginButton"
+          >
+            4
+          </button>
+          <button
+            id="rightPaginButton"
+            class="paginationButton arrowPaginButton"
+          >
+            >
+          </button>
+        </div>
+      </div>
+
+      <div id="delPane" class="delStudentPane">
+        <div class="delTitlePane">
+          <p id="warningTitle" class="delWarningTitle">Warning</p>
+          <button id="closeDelButton" class="delStudButton closeDelStudButton">
+            ✕
+          </button>
+        </div>
+        <p id="delInfo" class="studDelInfo">
+          Are you sure you want to delete user
+        </p>
+        <div class="delBottomPane">
+          <div class="delStudButtonPane">
+            <button id="okDelButton" class="delStudButton">Ok</button>
+            <button
+              id="cancelDelButton"
+              class="delStudButton closeDelStudButton"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="formStudentPane" class="studFormPane">
+      <div class="studFormTopPane">
+        <p id="formType" class="studFormType">Add student</p>
+        <button id="closeFormButton" class="formStudButton closeStudFormButton">
+          ✕
+        </button>
+      </div>
+      <form id="studentForm" class="mainStudentForm">
+        <label for="groupSelect" class="studFormLabel">Group</label>
+        <select id="groupSelect" class="studFormField selectField" required="">
+          <option value="" disabled selected hidden class="selectPlaceholder">
+            Select Group
+          </option>
+          <option value="KN-21">KN-21</option>
+          <option value="KN-22">KN-22</option>
+          <option value="PZ-23">PZ-23</option>
+        </select>
+        <label for="firstNameField" class="studFormLabel">First Name</label>
+        <input
+          type="text"
+          id="firstNameField"
+          class="studFormField"
+          minlength="2"
+          maxlegnth="30"
+          pattern="[A-Z][a-z]*([\-][A-Z][a-z]*)*"
+          required
+        />
+        <label for="lastNameField" class="studFormLabel">Last Name</label>
+        <input
+          type="text"
+          id="lastNameField"
+          class="studFormField"
+          minlength="2"
+          maxlength="30"
+          pattern="[A-Z][a-z]*([\-][A-Z][a-z]*)*"
+          required
+        />
+        <label for="genderSelect" class="studFormLabel">Gender</label>
+        <select id="genderSelect" class="studFormField selectField" required="">
+          <option value="" disabled selected hidden class="selectPlaceholder">
+            Select Gender
+          </option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+          <option value="O">Other</option>
+        </select>
+        <label for="birthdayField" class="studFormLabel">Birthday</label>
+        <input
+          type="date"
+          id="birthdayField"
+          class="studFormField studBirthdayField"
+          min="1955-01-01"
+          max="2010-12-31"
+          required
+        />
+      </form>
+      <div class="formBottomPane">
+        <div class="formButtonPane">
+          <input
+            type="submit"
+            form="studentForm"
+            id="okFormButton"
+            class="formStudButton"
+            value="Ok"
+          />
+          <button
+            id="cancelFormButton"
+            class="formStudButton closeStudFormButton"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorMsgPane" class="errorMessagePane">
+      <div class="errorMsgTopPane">
+        <h6 class="errorMsgTitle">Http-Request Error</h6>
+        <button id="emCloseButton" class="errorMsgButton">✕</button>
+      </div>
+      <div class="errorMsgMainPane">
+        <img
+          id="warningImage"
+          class="emWarningImage"
+          src="pictures/Warning.png"
+          alt="Image cannot be displayed"
+        />
+        <div class="errorMsgTextPane">
+          <h4 id="errorMsgStatus" class="errorMsgStatusText">Error 404</h4>
+          <p id="errorMsgInfo" class="errorMsgInfoText"></p>
+        </div>
+      </div>
+      <div class="errorMsgBottomPane">
+        <button id="emOkButton" class="errorMsgButton">Ok</button>
+      </div>
+    </div>
+
+    <script
+      src="navigationMain/javaScript/navMainScript.js"
+      type="module"
+    ></script>
+    <script src="students/javaScript/studentsScript.js" type="module"></script>
+    <script
+      src="students/javaScript/paginationScript.js"
+      type="module"
+    ></script>
+  </body>
+</html>

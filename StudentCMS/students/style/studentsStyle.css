@@ -1,0 +1,144 @@
+.workPane {
+  margin-right: 20px;
+}
+
+.studAddPlusButton {
+  height: 30px;
+  width: 32px;
+  background-color: #ffffff;
+  border: solid 2px rgb(155, 155, 155);
+  font-size: 22px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.studAddPlusButton:hover {
+  background-color: #fbf7f7;
+}
+
+.studAddPlusButton:active {
+  background-color: #ececec;
+}
+
+.mainStudentsTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: solid 2px #4a4a4a;
+  margin-top: 15px;
+}
+
+.mainStudentsTable th {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.mainStudentsTable th,
+td {
+  height: 50px;
+  border: solid 2px #4a4a4a;
+  font-family: sans-serif;
+}
+
+.mainStudentsTable td {
+  font-weight: bold;
+}
+
+.studIdColumn {
+  display: none;
+}
+
+.studHiddenCell {
+  display: none;
+}
+
+.checkBoxCell {
+  position: relative;
+}
+
+.studCheckBox {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  border: solid 2px #4a4a4a;
+  border-radius: 0;
+}
+
+.studCheckMark {
+  width: 4px;
+  height: 9px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  display: block;
+  position: absolute;
+  left: 47%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  top: 36.5%;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.studCheckBox:checked + .studCheckMark {
+  opacity: 1;
+}
+
+.studStatusMark {
+  height: 20px;
+  width: 20px;
+  background-color: #689e39;
+  border-radius: 50%;
+}
+
+.studOptionsPane {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.optionButton {
+  height: 30px;
+  width: 30px;
+  background-color: #fbf7f7;
+  border: solid 1.5px #4a4a4a;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.optionButton:hover {
+  background-color: #ffffff;
+}
+
+.optionButton:active {
+  background-color: #ececec;
+}
+
+#editButton {
+  padding: 3px;
+}
+
+.studPaginationPane {
+  width: fit-content;
+  position: relative;
+  left: 40%;
+  margin-top: 3%;
+}
+
+.paginationButton {
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  border: solid 1px #4a4a4a;
+  font-family: sans-serif;
+  font-size: 22px;
+}
+
+.paginationButton:hover {
+  background-color: #ececec;
+}
+
+.paginationButton.selected {
+  background-color: #cccccc;
+  font-weight: bold;
+}

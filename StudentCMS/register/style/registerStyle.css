@@ -1,0 +1,108 @@
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.regMainPage {
+  height: 100%;
+  width: 100%;
+  background-color: #424242;
+}
+
+.paneTitle {
+  height: 18px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.signUpPane {
+  height: 220px;
+  width: 260px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  top: 35%;
+}
+
+.signUpForm {
+  display: grid;
+  padding-left: 15px;
+  padding-right: 15px;
+  gap: 10px;
+}
+
+.formPane {
+  width: 100%;
+}
+
+.signUpInputField {
+  height: 25px;
+  width: 100%;
+  border: solid 1px #ececec;
+  border-radius: 3px;
+  outline: none;
+  padding: 0;
+  padding-left: 3px;
+  font-family: "inter", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.signUpInputField:hover {
+  border: solid 1px #5a5a5a;
+}
+
+.signUpInputField:focus {
+  border: solid 1px #424242;
+}
+
+.signUpFormSubmit {
+  height: 30px;
+  background-color: #ececec;
+  border: none;
+  border-radius: 5px;
+  font-family: "inter", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signUpFormSubmit:hover {
+  background-color: #5a5a5a;
+  color: #ffffff;
+}
+
+.signUpFormSubmit:active {
+  background-color: #424242;
+  color: #fbf7f7;
+}
+
+.signInPane {
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registerText {
+  font-family: "inter", sans-serif;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.loginLink {
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}

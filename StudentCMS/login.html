@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentCMS</title>
+
+    <link rel="stylesheet" type="text/css" href="login/style/loginStyle.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="errorMessage/style/errorMsgStyle.css"
+    />
+    <link rel="manifest" href="serviceWorkers/manifest.json" />
+  </head>
+  <body>
+    <div id="mainPage" class="logMainPage">
+      <div class="loginPane">
+        <p id="loginTitle" class="paneTitle">Login</p>
+        <form id="loginForm" class="signInForm">
+          <div id="usernamePane" class="formPane">
+            <label for="usernameField" class="loginText">Username</label>
+            <input
+              type="text"
+              id="usernameField"
+              class="loginInputField"
+              reqiured
+            />
+          </div>
+          <div id="passwordPane" class="formPane">
+            <label for="passwordField" class="loginText">Password</label>
+            <input
+              type="password"
+              id="passwordField"
+              class="loginInputField"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            id="loginSubmitButton"
+            class="loginFormSubmit"
+            value="Login"
+          />
+        </form>
+        <div class="signUpPane">
+          <p class="loginText">New on this site?</p>
+          <a href="register.html" class="registerLink loginText">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorMsgPane" class="errorMessagePane">
+      <div class="errorMsgTopPane">
+        <h6 class="errorMsgTitle">Http-Request Error</h6>
+        <button id="emCloseButton" class="errorMsgButton">✕</button>
+      </div>
+      <div class="errorMsgMainPane">
+        <image
+          id="warningImage"
+          class="emWarningImage"
+          src="pictures/Warning.png"
+          alt="Image cannot be displayed"
+        ></image>
+        <div class="errorMsgTextPane">
+          <h4 id="errorMsgStatus" class="errorMsgStatusText">Error 404</h4>
+          <p id="errorMsgInfo" class="errorMsgInfoText"></p>
+        </div>
+      </div>
+      <div class="errorMsgBottomPane">
+        <button id="emOkButton" class="errorMsgButton">Ok</button>
+      </div>
+    </div>
+    <script src="login/javaScript/loginScript.js" type="module"></script>
+  </body>
+</html>

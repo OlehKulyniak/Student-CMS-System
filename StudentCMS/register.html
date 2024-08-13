@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentCMS</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="register/style/registerStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="errorMessage/style/errorMsgStyle.css"
+    />
+    <link rel="manifest" href="serviceWorkers/manifest.json" />
+  </head>
+  <body>
+    <div id="mainPage" class="regMainPage">
+      <div class="signUpPane">
+        <p id="registerTitle" class="paneTitle">Register</p>
+        <form id="registerForm" class="signUpForm">
+          <div id="usernamePane" class="formPane">
+            <label for="usernameField" class="registerText">Username</label>
+            <input
+              name="username"
+              type="text"
+              id="usernameField"
+              class="signUpInputField"
+              required
+            />
+          </div>
+          <div id="passwordPane" class="formPane">
+            <label for="passwordField" class="registerText">Password</label>
+            <input
+              name="password"
+              type="password"
+              id="passwordField"
+              class="signUpInputField"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            id="signUpSubmitButton"
+            class="signUpFormSubmit"
+            value="Sign Up"
+          />
+        </form>
+        <div class="signInPane">
+          <p class="registerText">Have account?</p>
+          <a href="login.html" class="loginLink registerText">Sign in</a>
+        </div>
+      </div>
+
+      <div id="errorMsgPane" class="errorMessagePane">
+        <div class="errorMsgTopPane">
+          <h6 class="errorMsgTitle">Http-Request Error</h6>
+          <button id="emCloseButton" class="errorMsgButton">✕</button>
+        </div>
+        <div class="errorMsgMainPane">
+          <image
+            id="warningImage"
+            class="emWarningImage"
+            src="pictures/Warning.png"
+            alt="Image cannot be displayed"
+          ></image>
+          <div class="errorMsgTextPane">
+            <h4 id="errorMsgStatus" class="errorMsgStatusText">Error 404</h4>
+            <p id="errorMsgInfo" class="errorMsgInfoText"></p>
+          </div>
+        </div>
+        <div class="errorMsgBottomPane">
+          <button id="emOkButton" class="errorMsgButton">Ok</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="register/javaScript/registerScript.js" type="module"></script>
+</html>

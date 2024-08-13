@@ -1,0 +1,142 @@
+.studFormPane {
+  height: 50%;
+  width: 420px;
+  background-color: #ffffff;
+  border: solid 1px #4a4a4a;
+  border-radius: 5px;
+  display: inline-block;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+
+.studFormPane.selected {
+  display: block;
+}
+
+.studFormTopPane {
+  height: 16%;
+  border-bottom: solid 2px #4a4a4a;
+  display: flex;
+  position: relative;
+}
+
+.studFormType {
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#closeFormButton {
+  height: 22px;
+  width: 24px;
+  font-weight: bold;
+  padding: 0%;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+.mainStudentForm {
+  height: 50%;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 15px;
+  margin-left: 10%;
+  margin-top: 7%;
+  position: relative;
+}
+
+.studFormLabel {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.formBottomPane {
+  height: 16%;
+  width: 100%;
+  border-top: solid 2px #4a4a4a;
+  position: absolute;
+  bottom: 0%;
+}
+
+.formButtonPane {
+  display: inline-flex;
+  gap: 15px;
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+
+.formStudButton {
+  height: 22px;
+  background-color: #ffffff;
+  border: solid 1px #4a4a4a;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.formStudButton:hover {
+  background-color: #ececec;
+}
+
+.formStudButton:active {
+  background-color: #fbf7f7;
+}
+
+#okFormButton {
+  width: 40px;
+}
+
+#cancelFormButton {
+  width: 55px;
+}
+
+.studFormField {
+  background-color: #ffffff;
+  border: solid 1px #cccccc;
+  cursor: pointer;
+}
+
+.selectField:invalid {
+  color: #cccccc;
+}
+
+.selectField:focus:invalid {
+  color: #4a4a4a;
+}
+
+.selectField option {
+  color: #000000;
+}
+
+.studBirthdayField {
+  height: 20px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.studBirthdayField:invalid {
+  color: #cccccc;
+}
+
+.studBirthdayField::-webkit-calendar-picker-indicator {
+  opacity: 0.3;
+}
+
+.studBirthdayField:focus {
+  color: #4a4a4a;
+}
+
+.studBirthdayField:focus::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}

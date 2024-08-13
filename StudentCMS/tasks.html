@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" charset="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link rel="stylesheet" type="text/css" href="tasks/style/tasksStyle.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="navigationMain/style/navMainStyle.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  </head>
+  <body>
+    <nav class="navigationPane">
+      <button id="cmsButton" class="navTitleButton">CMS</button>
+      <div id="navTools" class="navigationTools">
+        <div id="bellPane" class="navBellPane">
+          <svg
+            id="bellImage"
+            class="navBellImage"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+            />
+          </svg>
+          <div id="bellOrangeDot" class="navBellOrangeDot selected"></div>
+        </div>
+        <div id="profilePane" class="navProfilePane">
+          <img
+            id="profilePic"
+            class="navProfilePic"
+            src="pictures/ProfilePicture.jpg"
+            alt="Image cannot be displayed"
+          />
+          <p id="profileUsername" class="navProfileUsername">James Bond</p>
+        </div>
+      </div>
+
+      <div id="msgMenu" class="msgMenuPane">
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Admin</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Jonh K.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+
+        <div class="msgPane">
+          <div class="msgProfile">
+            <img
+              class="msgBellProfileImage"
+              src="pictures/MessageProfile.jpg"
+              alt="Image cannot be displayed"
+            />
+            <p class="msgUsername">Ann S.</p>
+          </div>
+          <div class="msgTriangle bellMessage"></div>
+          <div class="msgRect"></div>
+        </div>
+      </div>
+
+      <div id="profileMenu" class="profileMenuPane">
+        <button id="profileButton" class="profileMenuButton">Profile</button>
+        <button id="logOutButton" class="profileMenuButton">Log Out</button>
+      </div>
+    </nav>
+
+    <div id="mainPane" class="mainPane">
+      <nav id="navTabPane" class="tabPane">
+        <ul class="tabItem">
+          <a href="messages.html" id="messagesLink" class="tabLink">
+            Messages
+          </a>
+        </ul>
+        <ul class="tabItem">
+          <a href="index.html" id="studentsLink" class="tabLink"> Students </a>
+        </ul>
+        <ul class="tabItem selected">
+          <a href="tasks.html" id="tasksLink" class="tabLink"> Tasks </a>
+        </ul>
+      </nav>
+
+      <div id="tasksPane" class="workPane">
+        <p id="title" class="tabTitle">Tasks</p>
+
+        <div class="mainTasksPane">
+          <div id="toDoPane" class="tasksBoardPane">
+            <div class="boardTitlePane">
+              <p class="boardTitle">ToDo</p>
+            </div>
+            <div id="toDoContainer" class="tasksContainer">
+              <!-- <div class="taskPane" draggable="true">
+                <p id="taskId" class="taskTextHidden">${taskId}</p>
+                <p id="taskTitle" class="taskText">Some Title</p>
+                <p id="taskDate" class="taskText">22.05.2025</p>
+                <p id="taskDescription" class="taskTextHidden">Some Desc</p>
+              </div> -->
+            </div>
+            <button id="toDoAddTaskButton" class="addTaskButton">
+              + Add task
+            </button>
+          </div>
+
+          <div id="inProcessPane" class="tasksBoardPane">
+            <div class="boardTitlePane">
+              <p class="boardTitle">In process</p>
+            </div>
+            <div id="inProcessContainer" class="tasksContainer">
+              <!-- <div class="taskPane">
+                <p class="taskTitle"></p>
+                <p class="taskDate"></p>
+              </div> -->
+            </div>
+            <button id="inProcessAddTaskButton" class="addTaskButton">
+              + Add task
+            </button>
+          </div>
+          <div id="donePane" class="tasksBoardPane">
+            <div class="boardTitlePane">
+              <p class="boardTitle">Done</p>
+            </div>
+            <div id="doneContainer" class="tasksContainer">
+              <!-- <div class="taskPane">
+                <p class="taskTitle"></p>
+                <p class="taskDate"></p>
+              </div> -->
+            </div>
+            <button id="doneAddTaskButton" class="addTaskButton">
+              + Add task
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mainTaskFormPane" class="taskFormPane">
+      <div class="taskFormTopPane">
+        <p id="mainTaskFormTitle" class="taskFormTitle">Task #1</p>
+        <button class="tfCloseButton taskFormButton taskFormCloseButton">
+          ✕
+        </button>
+      </div>
+      <div class="workTaskFormPane">
+        <form id="mainTaskForm" class="taskForm">
+          <label for="tfBoardSelect" class="taskFormLabel">Board</label>
+          <select
+            id="tfBoardSelect"
+            class="taskFormSelect taskFormText"
+            required
+          >
+            <option value="ToDo">ToDo</option>
+            <option value="InProcess">In Process</option>
+            <option value="Done">Done</option>
+          </select>
+          <label for="tfNameField" class="taskFormLabel">Name</label>
+          <input
+            type="text"
+            id="tfNameField"
+            class="taskFormField taskFormText"
+            minlength="1"
+            maxlength="30"
+            required
+          />
+          <label for="tfDateField" class="taskFormLabel">Date</label>
+          <input
+            type="date"
+            id="tfDateField"
+            class="taskFormDate taskFormText"
+          />
+          <label for="tfDescArea" class="taskFormLabel">Description</label>
+          <textarea
+            id="tfDescArea"
+            class="taskFormTextArea taskFormText"
+            maxlength="500"
+          ></textarea>
+        </form>
+      </div>
+      <div class="taskFormBottomPane">
+        <div class="taskFormButtonPane">
+          <button
+            form="mainTaskForm"
+            id="taskFormSubmit"
+            class="tfMainButton taskFormButton"
+          >
+            Add
+          </button>
+          <button
+            if="taskFormCancel"
+            class="tfMainButton taskFormButton taskFormCloseButton"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="tasks/javaScript/tasksScript.js" type="module"></script>
+    <script src="tasks/javaScript/dragScript.js" type="module"></script>
+    <script
+      src="navigationMain/javaScript/navMainScript.js"
+      type="module"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,526 @@
+.mainMessagesPane {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 10%;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatRoomContPane {
+  height: 90%;
+  width: 240px;
+  border: solid 1px rgb(155, 155, 155);
+  display: flex;
+  flex-direction: column;
+}
+
+.chatRoomContInfo {
+  width: 100%;
+  display: flex;
+  gap: 21px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.chatRoomTitleText {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.newChatRoomButton {
+  height: 100%;
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.newChatRoomButton:hover {
+  background-color: #fbf7f7;
+}
+
+.newChatRoomButton:active {
+  background-color: #ececec;
+}
+
+.chatRoomContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.chatRoom {
+  height: 40px;
+  width: 100%;
+  background-color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  cursor: pointer;
+}
+
+.chatRoom.selected {
+  background-color: #aeaed7;
+}
+
+.chatRoomImage {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.chatRoomName {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  margin-left: 12px;
+  margin-top: 3px;
+  line-height: 1;
+}
+
+.elementIdHidden {
+  display: none;
+}
+
+.chatRoomPane {
+  height: 90%;
+  width: 53%;
+  border: solid 1px rgb(155, 155, 155);
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+}
+
+.chatMembersPane {
+  display: flex;
+  gap: 15px;
+}
+
+.chatMembersContPane {
+  display: flex;
+  gap: 15px;
+}
+
+.chatMemberPane {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chatMemberImage {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.chatMemberUsername {
+  background-color: #ffffff;
+  font-family: sans-serif;
+  font-size: 10px;
+  margin: 0px;
+  display: none;
+}
+
+.chatMemberPane:hover .chatMemberUsername {
+  display: block;
+}
+
+.newMemberButton {
+  height: 25px;
+  width: 25px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 50%;
+  color: #fbf7f7;
+  font-size: 24px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.newMemberButton:hover {
+  color: #ffffff;
+}
+
+.newMemberButton:active {
+  color: #ececec;
+}
+
+.messageContPane {
+  height: 60%;
+  max-height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ececec;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #cccccc;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgb(155, 155, 155);
+}
+
+.messagePane {
+  height: fit-content;
+  width: fit-content;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.messagePane.ownMessage {
+  gap: 3px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.msgProfileInfoPane {
+  height: 100%;
+  width: fit-content;
+  min-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  align-items: center;
+}
+
+.messageContentPane {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.msgProfileImage {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.msgProfileName {
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.msgRectangle {
+  height: fit-content;
+  width: 95%;
+  min-width: 95%;
+  max-width: 95%;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.msgRectangle.ownMessage {
+  background-color: #aeaed7;
+  margin-left: auto;
+}
+
+.messageText {
+  font-family: sans-serif;
+  font-size: 14px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0px;
+}
+
+.sendMessagePane {
+  height: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  border: solid 2px #cccccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  top: 5px;
+}
+
+.sendMessageForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.newMessageField {
+  height: 100%;
+  width: 89%;
+  border: solid 1px #cccccc;
+  outline: none;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.newMessageField:hover {
+  border: solid 1px rgb(155, 155, 155);
+}
+
+.newMessageField:focus {
+  border: solid 1px rgb(155, 155, 155);
+}
+
+.sendMessageButton {
+  height: 100%;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+.sendMessageButton:hover {
+  color: rgb(155, 155, 155);
+}
+
+.sendMessageButton:active {
+  color: #5a5a5a;
+}
+
+.createChatRoomPane {
+  height: 150px;
+  width: 250px;
+  background-color: #ffffff;
+  border: solid 2px #cccccc;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.createChatRoomPane.selected {
+  display: flex;
+}
+
+.newChatTopPane {
+  height: 15%;
+  width: 100%;
+  border-bottom: solid 1px #cccccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.newChatRoomTitle {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 3px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.addPaneCloseButton {
+  height: 100%;
+  width: 26px;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  border-top-right-radius: 3px;
+  cursor: pointer;
+}
+
+.addPaneCloseButton:hover {
+  background-color: #e63232;
+  color: #ffffff;
+}
+
+.addPaneCloseButton:active {
+  background-color: #e64747;
+  color: #ffffff;
+}
+
+.newChatRoomForm {
+  display: grid;
+  grid-column: 1fr;
+  gap: 52%;
+  padding: 10px;
+  margin-top: 3px;
+  box-sizing: border-box;
+}
+
+.newChatFieldPane {
+  display: flex;
+  flex-direction: column;
+}
+
+.newChatRoomLabel {
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.newChatRoomField {
+  height: 21px;
+  border: solid 1px #cccccc;
+  border-radius: 3px;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.newChatRoomField:hover {
+  border: solid 1px #5a5a5a;
+}
+
+.newChatRoomField:focus {
+  border: solid 1px #5a5a5a;
+}
+
+.addPaneSubmit {
+  height: 26px;
+  width: 100%;
+  background-color: #ececec;
+  border: none;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.addPaneSubmit:hover {
+  background-color: #cccccc;
+}
+
+.addPaneSubmit:active {
+  background-color: rgb(155, 155, 155);
+}
+
+.newMembersPane {
+  height: fit-content;
+  width: 230px;
+  background-color: #ffffff;
+  border: solid 2px #cccccc;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.newMembersPane.selected {
+  display: flex;
+}
+
+.newMembersTopPane {
+  height: 26px;
+  width: 100%;
+  border-bottom: solid 1px #cccccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.newMembersTitle {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 3px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.newMembersContPane {
+  height: fit-content;
+  max-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.newMemberPane {
+  height: 30px;
+  width: 100%;
+  background-color: #cccccc;
+  border-radius: 5px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.newMemberPane.selected {
+  background-color: #aeaed7;
+}
+
+.newMemberImage {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  padding-left: 3px;
+}
+
+.newMemberUsername {
+  font-family: sans-serif;
+  font-size: 14px;
+  overflow-wrap: break-word;
+}
+
+.newMembersBottomPane {
+  height: 40px;
+  width: 100%;
+  border-top: solid 1px #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}

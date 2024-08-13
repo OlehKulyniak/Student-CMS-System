@@ -1,0 +1,252 @@
+body,
+html {
+  height: 100%;
+  margin: 0px;
+}
+
+body {
+  user-select: none;
+}
+
+.mainTasksPane {
+  width: 100%;
+  display: flex;
+  gap: 10%;
+}
+
+.tasksBoardPane {
+  height: fit-content;
+  width: 260px;
+  max-height: 300px;
+  border: solid 1px #5a5a5a;
+  position: relative;
+}
+
+.boardTitlePane {
+  height: 18px;
+  width: 100%;
+  border-bottom: solid 1px #000000;
+  position: relative;
+  text-align: center;
+}
+
+.boardTitle {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px;
+  padding-top: 1px;
+}
+
+.tasksContainer {
+  height: fit-content;
+  min-height: 10px;
+  max-height: 300px;
+  display: flex;
+  padding: 5px 10px;
+  flex-direction: column;
+}
+
+.taskPane {
+  height: 30px;
+  background-color: #ffffff;
+  border: solid 1px #5a5a5a;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.taskPane:hover {
+  background-color: #fbf7f7;
+}
+
+.taskPane:active {
+  background-color: #ececec;
+}
+
+.ptrEventsNone {
+  pointer-events: none;
+}
+
+.taskText {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0px;
+}
+
+.taskTextHidden {
+  display: none;
+}
+
+.addTaskButton {
+  height: 20px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.addTaskButton:hover {
+  background-color: #ececec;
+}
+
+.addTaskButton:active {
+  background-color: #fbf7f7;
+}
+
+.taskFormPane {
+  height: 350px;
+  width: 400px;
+  background-color: #ffffff;
+  border: solid 1px #5a5a5a;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+}
+
+.taskFormPane.active {
+  display: block;
+}
+
+.taskFormTopPane {
+  height: 12%;
+  width: 100%;
+  border-bottom: solid 1px #5a5a5a;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.taskFormTitle {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+  margin-left: 5px;
+}
+
+.tfCloseButton {
+  height: 22px;
+  width: 22px;
+  padding: 0px;
+  position: absolute;
+  right: 12px;
+}
+
+.workTaskFormPane {
+  width: 100%;
+  padding: 18px 35px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.taskForm {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+
+.taskFormLabel {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.taskFormSelect {
+  height: 22px;
+  border: solid 1px rgb(155, 155, 155);
+  cursor: pointer;
+}
+
+.taskFormField {
+  height: 18px;
+  border: solid 1px rgb(155, 155, 155);
+}
+
+.taskFormText {
+  font-family: sans-serif;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.taskFormDate {
+  height: 22px;
+  border: solid 1px rgb(155, 155, 155);
+}
+
+.taskFormDate:invalid {
+  color: rgb(155, 155, 155);
+}
+
+.taskFormDate:focus {
+  color: #000000;
+}
+
+.taskFormDate::-webkit-calendar-picker-indicator {
+  opacity: 0.3;
+}
+
+.taskFormDate:focus::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+.taskFormTextArea {
+  height: 85px;
+  border: solid 1px rgb(155, 155, 155);
+  font-size: 14px;
+  resize: none;
+}
+
+.taskFormBottomPane {
+  height: 15%;
+  width: 100%;
+  border-top: solid 1px #5a5a5a;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.taskFormButtonPane {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.tfMainButton {
+  height: 22px;
+  width: 55px;
+}
+
+.taskFormButton {
+  background-color: transparent;
+  border: solid 1px #5a5a5a;
+  border-radius: 2px;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.taskFormButton:hover {
+  background-color: #ececec;
+}
+
+.taskFormButton:active {
+  background-color: #fbf7f7;
+}
