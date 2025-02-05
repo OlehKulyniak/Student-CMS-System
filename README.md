@@ -1,27 +1,39 @@
 # Student CMS System
 
 ## Description
-This project is a JavaFX-based application that provides a graphical user interface for healthcare and vaccinations patient management. The application is built using Java, JavaFX. For creating unit tests used JUnit library.
+This project consists of a frontend built with HTML, CSS, and JavaScript, and a backend developed using Java with Spring Boot 3.4.0.
 
-## Prerequisites
-To run this project, you need to have the following installed:
-* Java Development Kit (JDK) 17 or later
-* JavaFX SDK
+## Technology Stack
+
+### Frontend:
+* HTML5
+* CSS3
+* JavaScript
+
+### Backend:
+* Java 17+
+* Spring Boot 3.4.0
+* Spring Web
+* Spring Data JPA
+* MySQL
+* MongoDB
+* WebSocket, STOMP
+* Lombok
 * Maven
 
-## Installation
-Clone this repository
+## Running the Project
 
-`git clone https://github.com/OlehKulyniak/Healthcare-Management-System.git`
-
-## Build Project
+### Running the Backend:
+1. Ensure you have **Java17+** installed.
+2. Clone the repository:
+`git clone https:/github.com/OlehKulyniak/Student-CMS-System.git`
+3. Build the project using Maven:
 `mvn clean install`
+4. Run the Spring Boot application:
+`mvn spring-boot:run`
 
-## Connecting JavaFX 
-Ensure JavaFX libraries are correctly linked in your IDE or build system.
-Change the Main configuration module path to the JavaFX library on your computer.
+### Running the Frontend:
+Open **register.html** in a browser or use a local server for development.
 
-`--module-path "/path/to/JavaFX/lib"`
-
-## Running the Application Using Command Line
-`java --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml -jar medex.jar`
+## Configuration
+Create or modify application.properties in src/main/resources to configure database connections, server ports, and other settings.
